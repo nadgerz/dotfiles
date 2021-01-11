@@ -22,3 +22,125 @@ is rarely touched) might break if the global configuration
 changes.
 
 
+Now I have already created my .eslintrc* files in this repo,
+but perhaps it would be better to generate them for each new
+project.
+
+But for illustrative purposes, I will refer to these ones.
+
+ESLint allows you to extend existing configuration files.
+
+This saves a lot of work on your part, by leveraging the config
+work others have done.
+
+In my case I extend the one AirBnb have created and then just override
+the rules *I* (or my team) care about.
+
+
+The one rule I override here is that 'no-unused-vars' should just
+issue a warning and not an error.
+
+This allows one to still commit a file, when used in conjuntion
+with another tool, called husky
+
+----- 8< ----- .eslintrc.js ----- >8 -----
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: ['airbnb-base'],
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  rules: {
+    'no-console': [1, { allow: ['warn', 'error'] }],
+    'no-unused-vars': [ 1, { args: 'none', }, ],
+  },
+}
+----- 8< ----- .eslintrc.js ----- >8 -----
+
+
+One other thing we want to avoid, especially when a project gets
+very large is running ESLint against the WHOLE project.
+
+ESLint is fast, but it's just wasted time to lint files that either
+
+a) do not need to be linted (node_modules files for instance)
+
+or
+
+b) are already linted (this is fixed with another tool called 'lint-staged'
+
+
+To fix a), above, we can create a .eslintignore file.
+
+Here is mine
+
+
+----- 8< ----- .eslintignore ----- >8 -----
+!.eslintrc.js
+**/*{.,-}min.js
+.DS_Store
+.git/
+.nyc_output/
+build/
+coverage/
+dist/
+jsdoc/
+lib/
+logs/
+node_modules/
+reports/
+tmp/
+----- 8< ----- .eslintignore ----- >8 -----
+
+Now of course you may not have many of these folders (many are created
+with *other* tools we will learn on the course.
+
+By far and away the most important directory/folder to ignore is node_modules,
+so you will get a LONG way JUST having the following entry.
+
+----- 8< ----- .eslintignore ----- >8 -----
+node_modules/
+----- 8< ----- .eslintignore ----- >8 -----
+
+
+And finally, related to where we can extend 3rd party ESLint configurations, like AirBnb's,
+we can also extend ones locally.
+
+A good use case for this is wanting to have different rules in development than in
+production.
+
+A classic case for this is using console.log() or setting a variable we have not
+got round to using just yet.
+
+Everytime we commit a file we do not want to keep deleting or commenting out those
+lines.
+
+So some teams allow these to be just warning in development.
+
+Notice the two rules settings in the .eslintrc.js file are warnings.
+
+
+But in the 'prod'uction eslint file they are errors.
+
+
+----- 8< ----- .eslintrc.prod.js ----- >8 -----
+module.exports = {
+  extends: './.eslintrc.js',
+  rules: {
+    'no-console': [2, { allow: ['warn', 'error'] }],
+    'no-unused-vars': [2, { args: 'none' }],
+  },
+}
+----- 8< ----- .eslintrc.prod.js ----- >8 -----
+
+Here we extend the .eslintrc.js file and then override the standard
+settings files with errors.
+
+In development we'll use the .eslintrc.js file and in production,
+when we deploy to a server or even perhaps push to certain git
+branches, we'll use the .eslintrc.prod.js file.
