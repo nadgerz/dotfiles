@@ -1,0 +1,24 @@
+
+ESLint - Find and fix problems in your JavaScript code
+
+https://eslint.org/
+
+Based off a configuration file, ESLint will scan your code
+and report on syntax/style errors.
+
+It can also, optionally, attempt to automatically fix your
+code to match the required configuration settings.
+
+I am not going to reproduce the docs here, but at least
+read this:
+
+https://eslint.org/docs/user-guide/getting-started
+
+
+ESLint can be used globally across projects, but it is
+recommended to use it on a per project/repo basis
+because code that once worked fine (on a project that
+is rarely touched) might break if the global configuration
+changes.
+
+

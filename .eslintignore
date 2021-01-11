@@ -1,0 +1,14 @@
+!.eslintrc.js
+**/*{.,-}min.js
+.DS_Store
+.git/
+.nyc_output/
+build/
+coverage/
+dist/
+jsdoc/
+lib/
+logs
+node_modules/
+reports/
+tmp/
