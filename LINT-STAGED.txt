@@ -1,0 +1,34 @@
+
+lint-staged = Run linters against staged git files and don't let 💩 slip into your code base!
+
+https://www.npmjs.com/package/lint-staged
+
+One of the reasons we set up .ignore style files for eslint and prettier is
+we don't want to waste time re-checking files we have already checked or files
+we do not even *need* to check.
+
+But we can go one stage (see what I did there too!) further.
+
+At some point, our files will be staged for commit git (of course if
+you are not using git, you can still use ESLint)
+
+What lint-staged does is only run against the files that would be committed
+
+This saves scanning all .js files in a project when you are just committing one file.
+
+It makes use of husky (see other tool) [or does husky use it? :)]
+
+The fastest way to install this is via
+
+$ npx mrm lint-staged
+
+But, as you will see, we'll want to configure things a bit differently
+because of other tools we want to use.
+
+That said, this is super useful as is.
+
+One reason I configure things differently is to get the dotfiles for the tools
+outside the package.json.
+
+This makes them easier to copy for new projects, rather than extracting config
+sections out of package.json files. First world problem right there!
