@@ -1,0 +1,12 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "This repository (here-on-in called 'repo') contains some configuration files for a number of tools we will use everyday.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
