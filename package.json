@@ -4,6 +4,7 @@
   "description": "This repository (here-on-in called 'repo') contains some configuration files for a number of tools we will use everyday.",
   "main": "index.js",
   "scripts": {
+    "format:full": "prettier --write \"./**/*.{css,htm,html,js,jsx,json,sass,scss,ts,vue}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +13,10 @@
   "devDependencies": {
     "eslint": "^7.17.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.7",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
   }
 }
