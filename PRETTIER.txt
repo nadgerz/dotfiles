@@ -1,0 +1,55 @@
+
+prettier - opinionated code formatter
+
+https://prettier.io/
+
+Like ESLint, with prettier you set up a config file and
+prettier will comment on (and optionally fix) your code.
+
+In conjunction with ESLint they are a formidable team
+in helping teams work together and stop arguing about style.
+
+The team (finally :) ) set up a config of settings they agree on
+and you never have to think about it again.
+
+Both integrate into modent IDE's well, so that you can just save
+a file and have it formatted and syntax checked immediately.
+
+Like ESLint there is a core settings file and an ignore file.
+
+Unlike ESLint, there are no overrides other than the one single
+settings file.
+
+The idea behind this is to stop a situation where the team agrees
+on a setting and someone individually overrides that, making the
+whole idea of prettier, pretty pointless. See what i did there? :)
+
+
+Here is my .prettierrc file:
+
+----- 8< ----- .prettierrc ----- >8 -----
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "endOfLine": "auto",
+}
+----- 8< ----- .prettierrc ----- >8 -----
+
+
+
+And my ignore file:
+
+----- 8< ----- .prettierignore ----- >8 -----
+*.log
+.DS_Store
+.build
+.cache/
+build/
+coverage/
+dist/
+package-lock.json
+public/
+tmp/
+----- 8< ----- .prettierignore ----- >8 -----
