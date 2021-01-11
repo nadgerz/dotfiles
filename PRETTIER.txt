@@ -49,7 +49,16 @@ And my ignore file:
 build/
 coverage/
 dist/
+logs/
 package-lock.json
 public/
 tmp/
 ----- 8< ----- .prettierignore ----- >8 -----
+
+Many of the ignores are similar to ESLint for the same reasons... some
+files there is no point in changing... they are either 3rd party files
+or generated one that will just come back the same way.
+
+
+Now in the case of the 5 overrides I chose for my .prettierrc file, these
+are fairly common, but at the end, totally personal.
