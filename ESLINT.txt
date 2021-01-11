@@ -56,8 +56,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'no-console': [1, { allow: ['warn', 'error'] }],
-    'no-unused-vars': [ 1, { args: 'none', }, ],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'no-unused-vars': ['warn', { args: 'none' }],
   },
 }
 ----- 8< ----- .eslintrc.js ----- >8 -----
@@ -132,8 +132,8 @@ But in the 'prod'uction eslint file they are errors.
 module.exports = {
   extends: './.eslintrc.js',
   rules: {
-    'no-console': [2, { allow: ['warn', 'error'] }],
-    'no-unused-vars': [2, { args: 'none' }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-unused-vars': ['error', { args: 'none' }],
   },
 }
 ----- 8< ----- .eslintrc.prod.js ----- >8 -----
