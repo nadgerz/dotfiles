@@ -1,5 +1,6 @@
 
 ESLint - Find and fix problems in your JavaScript code
+------
 
 https://eslint.org/
 
@@ -144,3 +145,13 @@ settings files with errors.
 In development we'll use the .eslintrc.js file and in production,
 when we deploy to a server or even perhaps push to certain git
 branches, we'll use the .eslintrc.prod.js file.
+
+
+
+Finally, eslint takes an optional --fix flag where it will attempt to
+automatically fix up your code to match the configuration.
+
+This kind of overlaps with the capabilities of another tool; prettier,
+which is purely based on style.  ESLint is more biased towards syntax
+and prettier is now seen as the go-to tool for beautifying/prettifying/styling
+code.
