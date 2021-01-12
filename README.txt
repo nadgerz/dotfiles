@@ -21,11 +21,11 @@ listings on a day-to-day basis.
 
 The 5 tools we will be mentioning/configuring are:
 
-eslint -
-prettier - 
-husky -
-lint-staged -
-pretty-quick - 
+eslint - Find and fix problems in your JavaScript code
+prettier - opinionated code formatter
+husky - git hooks made easy
+lint-staged - Run linters against staged git files and don't let 💩 slip into your code base!
+pretty-quick - runs prettier on your changed files
 
 There is a separate 'README' for each tool for the details
 of configuring that specific tool.

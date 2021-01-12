@@ -1,0 +1,65 @@
+
+husky - git hooks made easy
+
+https://www.npmjs.com/package/husky
+
+
+husky is an npm package that make git hooks a lot easier
+to manage.
+
+git has the capability to run things before/after a git
+command itself is run.
+
+For example, before we commit a file, we might wannt to make
+sure that tests are run, or prettier is run against the file,
+or eslint is run.
+
+In fact we DO want to do that.
+
+The same goes for when we run 'git push'
+
+These are probably the two most common scenarios
+
+By using husky, it means we never 'forget' to run tests/prettier and eslint.
+
+The git hooks (just scripts in the .git/hooks directory in every repo) 
+will intercept the commit/push command and run whatever commands you have
+listed in your package.json in the "husky" section.
+
+You can create a .huskyrc file outside the package.json instead to
+make it easier to copy to new projects.
+
+By default the git hooks are disabled... husky just adds a whole bunch
+of scripts (which you can look at after husky is installed) and you
+can tap into those...
+
+For example:
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.+(js|json|css|md)": [
+      "pretty-quick --staged"
+    ]
+  }
+
+
+Here, we are saying, before you commit a file, run lint-staged
+
+And lint-staged says,
+
+a) for all file with a .js extension, run eslint and try and fix the files where you can
+
+b) for all files ending in .js or .json or .css or .md, run prettier and fix up what you can.
+
+
+$ npm install husky --save-dev
+
+
+Using husky to run these tooks before (pre-) commit...
+
+https://prettier.io/docs/en/precommit.html

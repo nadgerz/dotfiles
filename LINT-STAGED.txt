@@ -32,3 +32,5 @@ outside the package.json.
 
 This makes them easier to copy for new projects, rather than extracting config
 sections out of package.json files. First world problem right there!
+
+See the HUSKY.txt file for a different example.

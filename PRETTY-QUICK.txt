@@ -1,0 +1,15 @@
+
+pretty-quick - runs prettier on your changed files
+
+https://github.com/azz/pretty-quick
+
+In a similar idea to lint-staged, this tool will just
+run prettier on your changed files.
+
+This saves a lot of pointless processing of file that
+are already formatted correctly.
+
+When we combine it with a tool like husky the development
+process get's a lot simpler/more consistent.
+
+$ npm install --save-dev prettier pretty-quick
